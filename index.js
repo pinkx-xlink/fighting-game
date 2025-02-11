@@ -13,6 +13,7 @@ class Sprite {
         this.position = position;
         this.velocity = velocity;
         this.height = 150; 
+        this.lastKey
     }
 
     draw() {
@@ -86,6 +87,7 @@ function animate() {
 animate()
 
 window.addEventListener('keydown', (event) => {
+    console.log(event.key)
     switch (event.key) {
         case 'd':
             keys.d.pressed = true
@@ -99,6 +101,17 @@ window.addEventListener('keydown', (event) => {
             player.velocity.y -= 10
             break
 
+        case 'ArrowRight':
+            keys.ArrowRight.pressed = true
+            enemy.lastKey = 'ArrowRight'
+            break
+        case 'ArrowLeft':
+            keys.ArrowLeft.pressed = true
+            enemy.lastKey = 'ArrowLeft'
+            break
+        case 'ArrowUp':
+            enemy.velocity.y -= 10
+            break
     }
     console.log(event.key)
 })
