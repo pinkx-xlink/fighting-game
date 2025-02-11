@@ -21,13 +21,13 @@ class Sprite {
     }
     update() {
         this.draw()
-        this.velocity.y += gravity;
+       
         this.position.y += this.velocity.y;
 
         // prevents from falling below canvas
         if (this.position.y + this.height + this.velocity.y >= canvas.height) {
             this.velocity.y = 0
-        }
+        } else this.velocity.y += gravity;
     }
 }
 
@@ -37,7 +37,7 @@ const player = new Sprite({
         y: 0
     }, velocity: {
         x: 0,
-        y: 10
+        y: 0
     }
 });
 
