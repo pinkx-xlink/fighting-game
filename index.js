@@ -64,6 +64,7 @@ const keys = {
         pressed: false
     }
 }
+let lastKey 
 
 function animate() {
     window.requestAnimationFrame(animate);
@@ -72,6 +73,10 @@ function animate() {
     player.update();
     enemy.update();
 
+    //player doesn't move...
+    player.velocity.x = 0;
+
+    // unless one of these keys is pressed
     if (keys.a.pressed) {
         player.velocity.x = -1
     } else if (keys.d.pressed) {
@@ -84,9 +89,11 @@ window.addEventListener('keydown', (event) => {
     switch (event.key) {
         case 'd':
             keys.d.pressed = true
+            lastKey = 'd'
             break
         case 'a':
             keys.a.pressed = true
+            lastKey = 'a'
             break
 
     }
