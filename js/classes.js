@@ -1,12 +1,12 @@
 class Sprite {
-    constructor({ position, imageSrc, scale = 1, frameMax = 1 }) {
+    constructor({ position, imageSrc, scale = 1, framesMax = 1 }) {
         this.position = position
         this.width = 50
         this.height = 150
         this.image = new Image()
         this.image.src = imageSrc
         this.scale = scale,
-        this.framesMax = frameMax,
+        this.framesMax = framesMax,
         this.framesCurrent = 0,
         this.framesElapsed = 0,
         this.framesHold = 10
@@ -53,13 +53,12 @@ class Fighter extends Sprite {
         offset, 
         imageSrc, 
         scale = 1, 
-        frameMax = 1 
+        framesMax = 1 
     }) {
         super({
             position,
             imageSrc,
-            frameMax,
-
+            framesMax
         })
 
         this.velocity = velocity

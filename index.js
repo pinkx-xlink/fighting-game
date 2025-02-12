@@ -24,21 +24,25 @@ const shop = new Sprite({
     },
     imageSrc: './img/shop.png',
     scale: 2.75,
-    frameMax: 6
+    framesMax: 6
 })
 
 const player = new Fighter({
     position: {
         x: 0,
         y: 0
-    }, velocity: {
+    }, 
+    velocity: {
         x: 0,
         y: 0
     },
     offset: {
         x: 0,
-        y:0
-    }
+        y: 0
+    },
+    imageSrc: './img/samuraiMack/Idle.png',
+    scale: 2.5,
+    framesMax: 8
 });
 
 const enemy = new Fighter({
