@@ -114,6 +114,15 @@ const keys = {
     }
 }
 
+function rectangularCollision({rectangle1, rectangle2}) {
+    return(
+        rectangle1.attackBox.position.x + rectangle1.attackBox.width >= rectangle2.position.x 
+        && rectangle1.attackBox.position.x <= rectangle2.position.x + rectangle2.width
+        && rectangle1.attackBox.position.y + rectangle1.attackBox.height >= rectangle2.position.y
+        && rectangle1.attackBox.position.y <= rectangle2.position.y + rectangle2.height
+    )
+}
+
 function animate() {
     window.requestAnimationFrame(animate);
     c.fillStyle = 'black'
@@ -141,11 +150,7 @@ function animate() {
 
     // detect for collision
     // collision if the player is touching but not past enemy
-    if (player.attackBox.position.x + player.attackBox.width >= enemy.position.x 
-    && player.attackBox.position.x <= enemy.position.x + enemy.width
-    && player.attackBox.position.y + player.attackBox.height >= enemy.position.y
-    && player.attackBox.position.y <= enemy.position.y + enemy.height
-    && player.isAttacking) {
+    if (rectangularCollision && player.isAttacking) {
         player.isAttacking = false;
         console.log('hit attackbox')
     }
