@@ -168,7 +168,10 @@ function animate() {
     }) && enemy.isAttacking) {
         enemy.isAttacking = false;
         console.log('hit player attackbox')
+        player.health -= 20;
+        document.querySelector('#playerHealth').style.width = player.health + '%'
     }
+    
 }
 animate()
 
