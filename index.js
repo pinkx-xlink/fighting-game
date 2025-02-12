@@ -169,7 +169,6 @@ function animate() {
 animate()
 
 window.addEventListener('keydown', (event) => {
-    console.log(event.key)
     switch (event.key) {
         case 'd':
             keys.d.pressed = true
@@ -222,6 +221,5 @@ window.addEventListener('keyup', (event) => {
             keys.ArrowLeft.pressed = false
             break
     }
-    console.log(event.key)
 })
 
