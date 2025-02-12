@@ -62,7 +62,7 @@ class Fighter {
         this.position.y += this.velocity.y;
 
         // prevents from falling below canvas
-        if (this.position.y + this.height + this.velocity.y >= canvas.height) {
+        if (this.position.y + this.height + this.velocity.y >= canvas.height - 96) {
             this.velocity.y = 0
         } else this.velocity.y += gravity;
     }
