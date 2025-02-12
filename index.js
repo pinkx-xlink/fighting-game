@@ -125,6 +125,7 @@ function rectangularCollision({rectangle1, rectangle2}) {
 }
 
 function determineWinner({player, enemy}) {
+    document.querySelector('#displayText').style.display = 'flex'
     if (player.health === enemy.health) {
         document.querySelector('#displayText').innerHTML = 'tie'
     } else if (player.health > enemy.health) {
@@ -147,6 +148,7 @@ function decreaseTimer() {
         determineWinner({player, enemy})
     }
 }
+
 decreaseTimer()
 
 function animate() {
@@ -199,7 +201,9 @@ function animate() {
     
     // end game based on health
     // (if a player 'dies' before time runs out)
-    if (enemy.health <= 0 || player.health <=0)
+    if (enemy.health <= 0 || player.health <= 0) {
+        determineWinner({player, enemy})
+    }
 }
 animate()
 
