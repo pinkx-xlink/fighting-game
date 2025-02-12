@@ -200,7 +200,6 @@ window.addEventListener('keydown', (event) => {
             enemy.isAttacking = true
             break
     }
-    console.log(event.key)
 })
 window.addEventListener('keyup', (event) => {
     switch (event.key) {
