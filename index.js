@@ -150,9 +150,20 @@ function animate() {
 
     // detect for collision
     // collision if the player is touching but not past enemy
-    if (rectangularCollision && player.isAttacking) {
+    if (rectangularCollision({
+        rectangle1: player,
+        rectangle2: enemy
+    }) && player.isAttacking) {
         player.isAttacking = false;
-        console.log('hit attackbox')
+        console.log('hit enemy attackbox')
+    }
+
+    if (rectangularCollision({
+        rectangle1: enemy,
+        rectangle2: player
+    }) && enemy.isAttacking) {
+        enemy.isAttacking = false;
+        console.log('hit player attackbox')
     }
 }
 animate()
@@ -185,6 +196,9 @@ window.addEventListener('keydown', (event) => {
             break
         case 'ArrowUp':
             enemy.velocity.y -= 20
+            break
+        case 'ArrowDown':
+            enemy.isAttacking = true
             break
     }
     console.log(event.key)
