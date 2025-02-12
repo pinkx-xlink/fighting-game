@@ -91,9 +91,9 @@ const enemy = new Sprite({
     },
    color: 'blue',
    offset: {
-    x: -50,
-    y: 0
-}
+        x: -50,
+        y: 0
+    }
 })
 
 
