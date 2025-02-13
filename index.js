@@ -89,7 +89,7 @@ const enemy = new Fighter({
   framesMax: 4,
   offset: {
     x: 215,
-    y: 157
+    y: 167
   },
   sprites: {
     idle: {
@@ -170,8 +170,10 @@ function animate() {
   // enemy movement
   if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
     enemy.velocity.x = -5
+    enemy.switchSprite('run')
   } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
     enemy.velocity.x = 5
+    enemy.switchSprite('run')
   }
 
   // detect for collision
