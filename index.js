@@ -174,6 +174,14 @@ function animate() {
   } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
     enemy.velocity.x = 5
     enemy.switchSprite('run')
+  } else {
+    enemy.switchSprite('idle')
+  }
+  // enemy jump
+  if (enemy.velocity.y < 0) {
+    enemy.switchSprite('jump')
+  } else if (enemy.velocity.y > 0) {
+    enemy.switchSprite('fall')
   }
 
   // detect for collision
