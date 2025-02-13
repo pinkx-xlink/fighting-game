@@ -101,11 +101,8 @@ class Fighter extends Sprite {
       sprites[sprite].image = new Image()
       sprites[sprite].image.src = sprites[sprite].imageSrc
     }
-
-    console.log(this.sprites)
   }
 
-   
   update() {
     this.draw();
     this.animateFrames();
@@ -119,7 +116,8 @@ class Fighter extends Sprite {
     // prevents from falling below canvas
     if (this.position.y + this.height + this.velocity.y >= canvas.height - 96) {
       this.velocity.y = 0
-    } else this.velocity.y += gravity;
+      this.position.y = 330
+    } else this.velocity.y += gravity
   }
   attack() {
     this.isAttacking = true
