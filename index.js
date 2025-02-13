@@ -90,7 +90,7 @@ function animate() {
   background.update();
   shop.update();
   player.update();
-  enemy.update();
+  // enemy.update();
 
   // player doesn't move...
   player.velocity.x = 0;
