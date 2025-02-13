@@ -96,7 +96,8 @@ class Fighter extends Sprite {
     this.framesCurrent = 0,
     this.framesElapsed = 0,
     this.framesHold = 5,
-    this.sprites = sprites
+    this.sprites = sprites,
+    this.dead = false
 
     for (const sprite in this.sprites) {
       sprites[sprite].image = new Image()
@@ -106,7 +107,7 @@ class Fighter extends Sprite {
 
   update() {
     this.draw();
-    this.animateFrames();
+    if (!this.dead) this.animateFrames();
 
     // attackBoxes
     this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
@@ -130,11 +131,21 @@ class Fighter extends Sprite {
   }
 
   takeHit() {
-    this.switchSprite('takeHit');
     this.health -= 20;
+
+    if (this.health <= 0) {
+        this.switchSprite('death')
+    } else this.switchSprite('takeHit')
   }
 
   switchSprite(sprite) {
+    // this line means if a player dies, they're done!
+    // overrides all other animations
+    if (this.image === this.sprites.death.image) {
+        if (this.framesCurrent === this.sprites.death.framesMax - 1) 
+            this.dead = true
+        return
+    }
     // this line prevents the attack animation from 
     // going on forever once spacebar is used - 
     // overrides all other animations
@@ -148,7 +159,7 @@ class Fighter extends Sprite {
         this.image === this.sprites.takeHit.image && 
         this.framesCurrent < this.sprites.takeHit.framesMax - 1
     ) return
-    
+
     switch (sprite) {
         case 'idle':
           if (this.image !== this.sprites.idle.image) {
@@ -191,7 +202,13 @@ class Fighter extends Sprite {
                 this.image = this.sprites.takeHit.image
                 this.framesMax = this.sprites.takeHit.framesMax
                 this.framesCurrent = 0
-
+            }
+        break
+        case 'death':
+            if (this.image !== this.sprites.death.image) {
+                this.image = this.sprites.death.image
+                this.framesMax = this.sprites.death.framesMax
+                this.framesCurrent = 0
             }
         break
     }
