@@ -83,7 +83,36 @@ const enemy = new Fighter({
   offset: {
     x: -50,
     y: 0
-  }
+  },
+  imageSrc: './img/kenji/Idle.png',
+  scale: 2.5,
+  framesMax: 4,
+  offset: {
+    x: 215,
+    y: 157
+  },
+  sprites: {
+    idle: {
+        imageSrc: './img/kenji/Idle.png',
+        framesMax: 4
+    },
+    run: {
+        imageSrc: './img/kenji/Run.png',
+        framesMax: 8
+    },
+    jump: {
+        imageSrc: './img/kenji/Jump.png',
+        framesMax: 2
+    },
+    fall: {
+        imageSrc: './img/kenji/Fall.png',
+        framesMax: 2
+    },
+    attack1: {
+        imageSrc: './img/kenji/Attack1.png',
+        framesMax: 4
+    }
+}
 })
 
 console.log(player);
@@ -112,7 +141,7 @@ function animate() {
   background.update();
   shop.update();
   player.update();
-  // enemy.update();
+  enemy.update();
 
   // player doesn't move...
   player.velocity.x = 0;

@@ -130,7 +130,10 @@ class Fighter extends Sprite {
   switchSprite(sprite) {
     // this line prevents the attack animation from 
     // going on forever once spacebar is used
-    if (this.image === this.sprites.attack1.image && this.framesCurrent < this.sprites.attack1.framesMax - 1) return
+    if (
+        this.image === this.sprites.attack1.image && 
+        this.framesCurrent < this.sprites.attack1.framesMax - 1
+    ) return
     switch (sprite) {
         case 'idle':
           if (this.image !== this.sprites.idle.image) {
