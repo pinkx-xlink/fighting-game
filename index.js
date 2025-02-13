@@ -222,14 +222,16 @@ function animate() {
   if (rectangularCollision({
     rectangle1: enemy,
     rectangle2: player
-  }) && enemy.isAttacking) {
+  }) && 
+  enemy.isAttacking && 
+  enemy.framesCurrent === 2) {
     enemy.isAttacking = false;
     console.log('hit player attackbox')
     player.health -= 20;
     document.querySelector('#playerHealth').style.width = player.health + '%'
   }
 
-  if (enemy.isAttacking && enemy.framesCurrent === 4 ) {
+  if (enemy.isAttacking && enemy.framesCurrent === 2 ) {
     enemy.isAttacking = false
   }
     
