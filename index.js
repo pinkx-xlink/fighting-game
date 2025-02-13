@@ -245,6 +245,7 @@ window.addEventListener('keydown', (event) => {
       break
     case 'ArrowDown':
       enemy.isAttacking = true
+      enemy.attack()
       break
   }
 })
