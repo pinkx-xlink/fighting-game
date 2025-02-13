@@ -5,10 +5,10 @@ class Sprite {
         this.height = 150
         this.image = new Image()
         this.image.src = imageSrc
-        this.scale = scale,
-        this.framesMax = framesMax,
-        this.framesCurrent = 0,
-        this.framesElapsed = 0,
+        this.scale = scale
+        this.framesMax = framesMax
+        this.framesCurrent = 0
+        this.framesElapsed = 0
         this.framesHold = 10
     }
 
@@ -58,6 +58,7 @@ class Fighter extends Sprite {
         super({
             position,
             imageSrc,
+            scale,
             framesMax
         })
 
