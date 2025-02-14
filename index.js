@@ -263,6 +263,7 @@ function animate() {
 animate()
 
 window.addEventListener('keydown', (event) => {4
+  // player can only move if they are not dead
   if (!player.dead) {
     switch (event.key) {
       case 'd':
@@ -281,9 +282,9 @@ window.addEventListener('keydown', (event) => {4
         break
     }
   }
-  
+  // enemy can only move if they are not dead
   if (!enemy.dead) {
-    switch(event.key) {
+    switch (event.key) {
       case 'ArrowRight':
         keys.ArrowRight.pressed = true
         enemy.lastKey = 'ArrowRight'
