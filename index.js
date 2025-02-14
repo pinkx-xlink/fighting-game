@@ -147,8 +147,6 @@ const enemy = new Fighter({
       }
 })
 
-console.log(player);
-
 const keys = {
   a: {
     pressed: false
@@ -229,7 +227,6 @@ function animate() {
   ) {
     enemy.takeHit();
     player.isAttacking = false;
-    console.log('hit enemy attackbox')
     // this line decreases health abruptly on each hit,
     // while the gsap line does the same function but
     // with a smoother animation
@@ -253,8 +250,7 @@ function animate() {
   enemy.framesCurrent === 2) {
     player.takeHit();
     enemy.isAttacking = false;
-    console.log('hit player attackbox')
- 
+
     // document.querySelector('#playerHealth').style.width = player.health + '%'
     gsap.to('#playerHealth', {
       width: player.health + '%'
