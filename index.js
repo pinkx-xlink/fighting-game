@@ -230,7 +230,13 @@ function animate() {
     enemy.takeHit();
     player.isAttacking = false;
     console.log('hit enemy attackbox')
-    document.querySelector('#enemyHealth').style.width = enemy.health + '%'
+    // this line decreases health abruptly on each hit,
+    // while the gsap line does the same function but
+    // with a smoother animation
+    // document.querySelector('#enemyHealth').style.width = enemy.health + '%'
+    gsap.to('#enemyHealth', {
+      width: enemy.health + '%'
+    })
   }
 
   // if player misses
@@ -248,7 +254,11 @@ function animate() {
     player.takeHit();
     enemy.isAttacking = false;
     console.log('hit player attackbox')
-    document.querySelector('#playerHealth').style.width = player.health + '%'
+ 
+    // document.querySelector('#playerHealth').style.width = player.health + '%'
+    gsap.to('#playerHealth', {
+      width: player.health + '%'
+    })
   }
 
   if (enemy.isAttacking && enemy.framesCurrent === 2 ) {
