@@ -246,7 +246,6 @@ function animate() {
     player.takeHit();
     enemy.isAttacking = false;
     console.log('hit player attackbox')
-    player.health -= 20;
     document.querySelector('#playerHealth').style.width = player.health + '%'
   }
 
@@ -262,7 +261,7 @@ function animate() {
 }
 animate()
 
-window.addEventListener('keydown', (event) => {4
+window.addEventListener('keydown', (event) => {
   // player can only move if they are not dead
   if (!player.dead) {
     switch (event.key) {
